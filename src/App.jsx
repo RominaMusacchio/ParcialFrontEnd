@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import './Styles/Form.css'
 import Card from './Components/Card'
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
   const [nombre,setNombre] = useState("");
   const [banda,setBanda] = useState("");
   const [mostrarCard, setMostrarCard] = useState(false);
-
+  const [error, setError] = useState(false);
 
   const handleChangeNombre = (event) => {
     setNombre(event.target.value);
@@ -33,6 +34,7 @@ function App() {
     }
     else{
       setMostrarCard(false);
+      setError(true);
       console.log("No puedo mostrar")
     }
 
@@ -45,18 +47,19 @@ function App() {
         <form onSubmit={handleSubmit}>
           <label>Ingresa tu nombre:</label> <input type="text" onChange={handleChangeNombre}/>
           <label>Ingresa tu banda favorita:</label> <input type="text" onChange={handleChangeBanda}/>
-          <button >Confirmar</button>
+          <button type="submit">Enviar</button>
         </form>
       </div>
+
 
       {mostrarCard ? (
         <Card nombre={nombre} banda={banda}/>
       
-    ) :(
+    ) :( error && (
     <div>
       Por favor chequea que la información sea correcta
     </div>
-    )}
+    ))}
       
     </>
   )

@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import './Styles/Form.css'
+import './index.css'
 import Card from './Components/Card'
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
   return (
     <>
       <div className="App">
-        <h1>Lista de Bandas</h1>
+        <h1>Cual es tu banda favorita?</h1>
         <form onSubmit={handleSubmit}>
           <label>Ingresa tu nombre:</label> <input type="text" onChange={handleChangeNombre}/>
           <label>Ingresa tu banda favorita:</label> <input type="text" onChange={handleChangeBanda}/>
